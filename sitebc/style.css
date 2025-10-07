@@ -1,0 +1,77 @@
+/* Estilo Base */
+body {
+    background: linear-gradient(135deg, #E8DDD0 0%, #D4C4B0 100%);
+}
+
+/* Componentes Customizados */
+.nav-link {
+    @apply text-brand-light hover:text-brand-dark transition-all duration-300 hover:scale-110 font-medium;
+}
+
+.mobile-nav-link {
+    @apply block py-3 text-brand-light hover:text-brand-dark transition font-medium;
+}
+
+.btn-primary {
+    @apply bg-gradient-to-r from-brand-light to-brand-dark text-white font-semibold py-4 px-10 rounded-full shadow-lg text-lg inline-flex items-center space-x-2 transition-all duration-300;
+}
+.btn-primary:hover {
+    @apply transform -translate-y-1 shadow-2xl;
+}
+
+.card {
+    @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-400;
+}
+.card:hover {
+    @apply transform -translate-y-2 scale-102 shadow-2xl border-brand-light/30;
+}
+
+.icon-circle {
+    @apply bg-gradient-to-r from-brand-beige to-gray-300 text-brand-dark rounded-full p-4 inline-flex items-center justify-center shadow-md transition-transform duration-500;
+}
+.icon-circle:hover {
+    @apply transform rotate-12 scale-110;
+}
+
+.section-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-brand-light to-transparent my-16;
+}
+
+/* Efeitos Especiais */
+.glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border-t border-b border-white/20;
+}
+
+.gradient-text {
+    @apply bg-gradient-to-r from-brand-dark to-brand-light bg-clip-text text-transparent;
+}
+
+.image-hover-effect:hover img {
+    @apply transform scale-105;
+}
+.image-hover-effect img {
+    @apply transition-transform duration-500 ease-in-out;
+}
+
+.scroll-indicator {
+    @apply fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-dark to-brand-light origin-left scale-x-0 z-50 transition-transform;
+}
+
+/* Animações Keyframes */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #4A3A28;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4A3A28; }
+}
