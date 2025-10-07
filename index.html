@@ -28,7 +28,9 @@
             }
         }
     </script>
-
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style type="text/tailwindcss">
         /* Estilos de componentes que usam @apply do Tailwind */
         .nav-link {
@@ -44,7 +46,8 @@
             @apply transform -translate-y-1 shadow-2xl;
         }
         .card {
-            @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-400;
+            /* CORRIGIDO de duration-400 para duration-300 */
+            @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-300;
         }
         .card:hover {
             @apply transform -translate-y-2 scale-102 shadow-2xl border-brand-light/30;
@@ -89,14 +92,221 @@
             50% { border-color: #4A3A28; }
         }
     </style>
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 </head>
 <body class="bg-brand-background text-brand-dark antialiased overflow-x-hidden">
 
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <header id="inicio" class="glass-effect sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-xl font-bold text-brand-dark">
+                <img src="imagens/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-all duration-300 hover:scale-110">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#psicoterapia" class="nav-link">Psicoterapia</a>
+                <a href="#sobre" class="nav-link">Sobre Mim</a>
+                <a href="#ajuda" class="nav-link">Como Ajudo</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#conteudo" class="nav-link">Conteúdo</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden transition-all duration-300 hover:scale-110 p-2" aria-label="Abrir menu">
+                <i data-lucide="menu" class="text-brand-dark w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-effect px-6 pb-4">
+            <a href="#inicio" class="mobile-nav-link">Início</a>
+            <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
+            <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
+            <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
+            <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
+            <a href="#conteudo" class="mobile-nav-link">Conteúdo</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="container mx-auto px-6 py-24 md:py-40 flex flex-col md:flex-row items-center text-center md:text-left min-h-screen">
+            <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
+                <div class="mb-8 mx-auto w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="imagens/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text leading-tight mb-6 typewriter">Seja bem-vindo(a)!</h1>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark leading-tight mb-6" data-aos="fade-up" data-aos-delay="400">Cuidar da sua mente é tão essencial quanto cuidar do corpo.</h2>
+                <p class="text-xl text-brand-light leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="500">No entanto, muitas pessoas passam anos ignorando sinais de estresse, ansiedade, tristeza profunda ou dificuldades nos relacionamentos, acreditando que vão "dar conta" sozinhas. Mas a verdade é: ninguém precisa enfrentar tudo sozinho. E é justamente nesse ponto que a psicoterapia pode transformar vidas.</p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" data-aos="fade-up" data-aos-delay="600">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span>Agende sua consulta agora</span>
+                </a>
+            </div>
+            <div class="md:w-1/2 mt-16 md:mt-0" data-aos="fade-left">
+                <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
+                    <img src="imagens/1000400422.jpg" alt="Mãos segurando blocos de madeira com o texto Saúde Mental" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="psicoterapia" class="bg-brand-beige py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" data-aos="fade-up">Por que a Psicoterapia é Transformadora?</h2>
+                <p class="text-xl text-brand-light mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">A terapia não é apenas um espaço para desabafar, mas sim um processo profundo de autoconhecimento e reconstrução interna. É o momento em que você aprende a:</p>
+                <ul class="space-y-6 text-lg text-brand-dark text-left mx-auto max-w-2xl">
+                    <li class="flex items-start space-x-4" data-aos="fade-up">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Organizar pensamentos que parecem confusos.</span>
+                    </li>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Encontrar equilíbrio emocional diante dos desafios do dia a dia.</span>
+                    </li>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Fortalecer sua autoestima e se reconectar com quem você realmente é.</span>
+                    </li>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Construir relações mais saudáveis consigo mesmo e com os outros.</span>
+                    </li>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Superar traumas, ansiedades e padrões repetitivos que impedem sua evolução.</span>
+                    </li>
+                </ul>
+                <p class="mt-12 text-2xl font-bold gradient-text leading-relaxed" data-aos="zoom-in" data-aos-delay="500">Imagine como seria viver com mais clareza, paz e confiança para tomar decisões que realmente refletem o que você deseja para sua vida.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="sobre" class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
+                <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
+                    <img src="imagens/1000400632.jpg" alt="Bianca Oliveira, psicóloga" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-16 md:mt-0 text-center md:text-left" data-aos="fade-left">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8">Quem Sou Eu</h2>
+                <p class="text-xl text-brand-light leading-relaxed mb-6">Sou Bianca Oliveira, psicóloga (CRP 01/23012), e há anos ajudo pessoas a encontrarem caminhos para uma vida mais leve e significativa. Minha missão é oferecer um espaço seguro, de acolhimento e sem julgamentos, onde você pode se expressar livremente e, aos poucos, reconstruir sua história.</p>
+                <p class="text-xl text-brand-light leading-relaxed">Acredito que cada ser humano carrega dentro de si um potencial imenso de transformação – e meu papel é caminhar ao seu lado para que você descubra e desenvolva esse potencial.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="ajuda" class="bg-brand-beige py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center max-w-6xl">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-16" data-aos="fade-up">Como Posso Te Ajudar</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card" data-aos="fade-up">
+                        <div class="icon-circle mx-auto mb-6"><i data-lucide="monitor" class="w-10 h-10"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Atendimento Online</h3>
+                        <p class="text-lg text-brand-light leading-relaxed">Ideal para quem busca praticidade, conforto e privacidade.</p>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-circle mx-auto mb-6"><i data-lucide="building" class="w-10 h-10"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Atendimento Presencial</h3>
+                        <p class="text-lg text-brand-light leading-relaxed">Para quem valoriza o contato humano direto em consultório.</p>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-circle mx-auto mb-6"><i data-lucide="heart-handshake" class="w-10 h-10"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Acompanhamento em Momentos de Crise</h3>
+                        <p class="text-lg text-brand-light leading-relaxed">Apoio imediato em situações de ansiedade intensa, luto, depressão ou grandes mudanças.</p>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-circle mx-auto mb-6"><i data-lucide="brain" class="w-10 h-10"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Desenvolvimento Pessoal e Autoconhecimento</h3>
+                        <p class="text-lg text-brand-light leading-relaxed">Para quem deseja ir além do tratamento de sintomas e construir uma vida mais consciente, equilibrada e plena.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="depoimentos" class="container mx-auto px-6 py-24 md:py-32 text-center max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-16" data-aos="fade-up">Histórias de Transformação</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="card text-left" data-aos="fade-right">
+                    <div class="mb-4"><i data-lucide="quote" class="w-8 h-8 text-brand-dark"></i></div>
+                    <p class="text-lg italic text-brand-dark leading-relaxed mb-6">Eu estava passando por uma fase difícil, cheia de inseguranças, e achava que não tinha saída. As sessões com a Bianca foram um divisor de águas. Hoje, consigo lidar melhor com meus sentimentos e me sinto mais forte para seguir em frente.</p>
+                    <p class="font-bold text-brand-dark">— Paciente em terapia online</p>
+                </div>
+                <div class="card text-left" data-aos="fade-left">
+                    <div class="mb-4"><i data-lucide="quote" class="w-8 h-8 text-brand-dark"></i></div>
+                    <p class="text-lg italic text-brand-dark leading-relaxed mb-6">Eu não acreditava que conversar poderia mudar tanto. O que encontrei foi um espaço onde pude me ouvir, entender meus padrões e aprender a me respeitar. Isso me devolveu a confiança que eu havia perdido.</p>
+                    <p class="font-bold text-brand-dark">— Paciente em atendimento presencial</p>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto" data-aos="zoom-in">
+                <h3 class="text-3xl font-bold gradient-text mb-8">Por que Escolher a Psicoterapia Agora?</h3>
+                <p class="text-xl text-brand-light leading-relaxed mb-6">Quantas vezes você já adiou algo importante na sua vida esperando o "momento certo"? A verdade é que a vida não espera. Enquanto você posterga, o peso emocional pode crescer, e as oportunidades de viver melhor ficam para trás.</p>
+                <p class="text-xl font-bold gradient-text leading-relaxed">👉 A psicoterapia é um investimento em você mesmo. É a chance de cuidar do que ninguém mais pode cuidar por você: sua mente, suas emoções e sua história.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="conteudo" class="bg-brand-beige py-24 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" data-aos="fade-up">Conteúdos para Refletir</h2>
+                    <p class="text-xl text-brand-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">Além dos atendimentos, compartilho conteúdos no meu Instagram para que você possa levar pequenos insights para o dia a dia:</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in">
+                        <div class="w-full h-64 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" style="background-image: url('imagens/1000400447.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Fortaleça sua mente com atitudes simples.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="imagens/1000400399.jpg" alt="Pessoa em momento de crise, recebendo apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Maneiras de lidar com momentos de crise emocional.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="imagens/1000400424.jpg" alt="Mãos unidas simbolizando relacionamentos e apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Estratégias para construir relações mais saudáveis.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="imagens/1000400422.jpg" alt="Post sobre a importância da Saúde Mental" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">A importância da terapia como prática de autocuidado.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="contato" class="py-24 md:py-32 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-dark/10 to-brand-light/10"></div>
+            <div class="container mx-auto px-6 max-w-4xl relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" data-aos="fade-up">Agende Sua Sessão Hoje</h2>
+                <p class="text-xl text-brand-light leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">Você já deu o primeiro passo apenas por estar aqui, buscando informações. Agora, dê o segundo passo: comece a transformar sua vida hoje mesmo.</p>
+                <p class="text-xl text-brand-light leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="200">Entre em contato e escolha a modalidade de atendimento que melhor se encaixa na sua rotina. Lembre-se: o cuidado com sua saúde mental é o maior ato de amor-próprio que você pode praticar.</p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" data-aos="zoom-in" data-aos-delay="300">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    <span>💬 Clique aqui e agende sua consulta</span>
+                </a>
+                <p class="mt-8 text-lg text-brand-light" data-aos="fade-up" data-aos-delay="400">Não espere mais para cuidar do que realmente importa: você.</p>
+            </div>
+        </section>
+    </main>
+
     <footer class="glass-effect py-12">
         <div class="container mx-auto px-6 text-center text-brand-light">
+            <div data-aos="fade-up">
+                <p class="text-2xl font-bold gradient-text mb-2">Bianca Oliveira – Psicóloga</p>
+                <p class="text-lg mb-6">CRP 01/23012</p>
+            </div>
             <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
                 <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle" aria-label="Contato via WhatsApp">
                     <i data-lucide="phone" class="w-6 h-6"></i>
@@ -105,9 +315,15 @@
                     <i data-lucide="instagram" class="w-6 h-6"></i>
                 </a>
             </div>
-            </div>
+            <p class="text-sm max-w-3xl mx-auto leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="200">
+                Este site segue as diretrizes do Código de Ética Profissional do Psicólogo. As informações aqui contidas têm caráter informativo e não substituem uma consulta psicológica.
+            </p>
+            <p class="text-sm" data-aos="fade-up" data-aos-delay="300">
+                &copy; <span id="year"></span> Bianca Oliveira. Todos os direitos reservados.
+            </p>
+        </div>
     </footer>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
