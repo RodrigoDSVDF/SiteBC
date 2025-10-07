@@ -1,324 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF--T">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bianca Oliveira - Psicóloga | CRP 01/23012</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
     
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #E8DDD0 0%, #D4C4B0 100%); 
-            color: #2A2A2A; 
-            overflow-x: hidden;
-        }
-        
-        .bg-beige { 
-            background: linear-gradient(135deg, #D4C4B0 0%, #C4B4A0 100%); 
-        }
-        
-        .text-brown-dark { color: #4A3A28; }
-        .text-brown-light { color: #6A5A48; }
-        
-        .btn-primary { 
-            background: linear-gradient(135deg, #6A5A48 0%, #4A3A28 100%); 
-            color: #FFFFFF; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(74, 58, 40, 0.3);
-        }
-        .btn-primary:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 25px rgba(74, 58, 40, 0.4);
-        }
-        
-        .card { 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(234, 234, 234, 0.5); 
-            border-radius: 20px; 
-            padding: 2rem; 
-            transition: all 0.4s ease; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .card:hover { 
-            transform: translateY(-10px) scale(1.02); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-            border-color: rgba(106, 90, 72, 0.3);
-        }
-        
-        .icon-circle { 
-            background: linear-gradient(135deg, #D4C4B0 0%, #C4B4A0 100%); 
-            color: #4A3A28; 
-            border-radius: 50%; 
-            padding: 1.5rem; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(74, 58, 40, 0.2);
-        }
-        .icon-circle:hover {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 8px 25px rgba(74, 58, 40, 0.3);
-        }
-        
-        .floating-animation {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #4A3A28 0%, #6A5A48 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .image-hover-effect {
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-        
-        .image-hover-effect:hover {
-            transform: scale(1.05);
-        }
-        
-        .image-hover-effect img {
-            transition: all 0.4s ease;
-        }
-        
-        .image-hover-effect:hover img {
-            transform: scale(1.1);
-        }
-        
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #4A3A28, #6A5A48);
-            transform-origin: left;
-            transform: scaleX(0);
-            z-index: 9999;
-            transition: transform 0.3s ease;
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid #4A3A28;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #4A3A28; }
-        }
-        
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #6A5A48, transparent);
-            margin: 4rem 0;
-        }
-        
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .animate-in {
-            animation: slideInUp 0.6s ease-out;
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .bounce-in {
-            animation: bounceIn 1s ease-out;
-        }
-        
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
 </head>
-<body class="antialiased">
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+<body class="bg-brand-background text-brand-dark antialiased overflow-x-hidden">
 
-    <!-- Header -->
+    <div id="scrollIndicator" class="scroll-indicator"></div>
+
     <header id="inicio" class="glass-effect sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" class="text-xl font-bold text-brown-dark floating-animation">
-                <img src="images/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-all duration-300 hover:scale-110">
+            <a href="#inicio" aria-label="Voltar ao início">
+                <img src="images/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-transform duration-300 hover:scale-110">
             </a>
             <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Início</a>
-                <a href="#psicoterapia" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Psicoterapia</a>
-                <a href="#sobre" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Sobre Mim</a>
-                <a href="#ajuda" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Como Ajudo</a>
-                <a href="#depoimentos" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Depoimentos</a>
-                <a href="#conteudo" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Conteúdo</a>
-                <a href="#contato" class="text-brown-light hover:text-brown-dark transition-all duration-300 hover:scale-110 font-medium">Contato</a>
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#psicoterapia" class="nav-link">Psicoterapia</a>
+                <a href="#sobre" class="nav-link">Sobre Mim</a>
+                <a href="#ajuda" class="nav-link">Como Ajudo</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#conteudo" class="nav-link">Conteúdo</a>
+                <a href="#contato" class="nav-link">Contato</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden transition-all duration-300 hover:scale-110">
-                <i data-lucide="menu" class="text-brown-dark w-6 h-6"></i>
+            <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Abrir menu">
+                <i data-lucide="menu" class="text-brand-dark w-6 h-6"></i>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden glass-effect px-6 pb-4">
-            <a href="#inicio" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Início</a>
-            <a href="#psicoterapia" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Psicoterapia</a>
-            <a href="#sobre" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Sobre Mim</a>
-            <a href="#ajuda" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Como Ajudo</a>
-            <a href="#depoimentos" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Depoimentos</a>
-            <a href="#conteudo" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Conteúdo</a>
-            <a href="#contato" class="block py-3 text-brown-light hover:text-brown-dark transition font-medium">Contato</a>
+            <a href="#inicio" class="mobile-nav-link">Início</a>
+            <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
+            <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
+            <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
+            <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
+            <a href="#conteudo" class="mobile-nav-link">Conteúdo</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="container mx-auto px-6 py-24 md:py-40 flex flex-col md:flex-row items-center text-center md:text-left min-h-screen">
-            <div class="md:w-1/2 md:pr-12 slide-in-left">
-                <div class="mb-8 mx-auto w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect bounce-in">
+            <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
+                <div class="mx-auto mb-8 w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect" data-aos="zoom-in" data-aos-delay="200">
                     <img src="images/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold gradient-text leading-tight mb-6 typewriter">Seja bem-vindo(a)!</h1>
-                <h2 class="text-3xl md:text-4xl font-bold text-brown-dark leading-tight mb-6 fade-in-up">Cuidar da sua mente é tão essencial quanto cuidar do corpo.</h2>
-                <p class="text-xl text-brown-light leading-relaxed mb-8 fade-in-up">No entanto, muitas pessoas passam anos ignorando sinais de estresse, ansiedade, tristeza profunda ou dificuldades nos relacionamentos, acreditando que vão "dar conta" sozinhas. Mas a verdade é: ninguém precisa enfrentar tudo sozinho. E é justamente nesse ponto que a psicoterapia pode transformar vidas.</p>
-                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary font-semibold py-4 px-10 rounded-full shadow-lg text-lg inline-flex items-center space-x-2 bounce-in">
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 typewriter">Seja bem-vindo(a)!</h1>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6" data-aos="fade-up" data-aos-delay="400">Cuidar da sua mente é tão essencial quanto cuidar do corpo.</h2>
+                <p class="text-xl text-brand-light leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="500">Muitas pessoas ignoram sinais de estresse, ansiedade ou tristeza, acreditando que devem "dar conta" sozinhas. Mas ninguém precisa enfrentar tudo sem apoio. É aqui que a psicoterapia pode transformar vidas.</p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" data-aos="fade-up" data-aos-delay="600">
                     <i data-lucide="phone" class="w-5 h-5"></i>
                     <span>Agende sua consulta agora</span>
                 </a>
             </div>
-            <div class="md:w-1/2 mt-16 md:mt-0 slide-in-right">
+            <div class="md:w-1/2 mt-16 md:mt-0" data-aos="fade-left">
                 <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
                     <img src="images/1000400422.jpg" alt="Mãos segurando blocos de madeira com o texto Saúde Mental" class="w-full h-full object-cover">
                 </div>
@@ -327,371 +70,63 @@
 
         <div class="section-divider"></div>
 
-        <!-- Por que a Psicoterapia é Transformadora? Section -->
-        <section id="psicoterapia" class="bg-beige py-24 md:py-32 parallax-bg">
+        <section id="psicoterapia" class="bg-brand-beige py-24 md:py-32">
             <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8 fade-in-up">Por que a Psicoterapia é Transformadora?</h2>
-                <p class="text-xl text-brown-light mb-12 leading-relaxed fade-in-up">A terapia não é apenas um espaço para desabafar, mas sim um processo profundo de autoconhecimento e reconstrução interna. É o momento em que você aprende a:</p>
-                <ul class="space-y-6 text-lg text-brown-dark text-left mx-auto max-w-2xl">
-                    <li class="flex items-start space-x-4 slide-in-left">
-                        <div class="icon-circle p-2">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" data-aos="fade-up">Por que a Psicoterapia é Transformadora?</h2>
+                <p class="text-xl text-brand-light mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">A terapia é um processo de autoconhecimento e reconstrução. É o momento em que você aprende a:</p>
+                <ul class="space-y-6 text-lg text-brand-dark text-left mx-auto max-w-2xl">
+                    <li class="flex items-start space-x-4" data-aos="fade-up">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
                         <span class="font-medium">Organizar pensamentos que parecem confusos.</span>
                     </li>
-                    <li class="flex items-start space-x-4 slide-in-left">
-                        <div class="icon-circle p-2">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="font-medium">Encontrar equilíbrio emocional diante dos desafios do dia a dia.</span>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Encontrar equilíbrio emocional diante dos desafios.</span>
                     </li>
-                    <li class="flex items-start space-x-4 slide-in-left">
-                        <div class="icon-circle p-2">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="font-medium">Fortalecer sua autoestima e se reconectar com quem você realmente é.</span>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Fortalecer sua autoestima e se reconectar com sua essência.</span>
                     </li>
-                    <li class="flex items-start space-x-4 slide-in-left">
-                        <div class="icon-circle p-2">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="font-medium">Construir relações mais saudáveis consigo mesmo e com os outros.</span>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Construir relações mais saudáveis.</span>
                     </li>
-                    <li class="flex items-start space-x-4 slide-in-left">
-                        <div class="icon-circle p-2">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="font-medium">Superar traumas, ansiedades e padrões repetitivos que impedem sua evolução.</span>
+                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
+                        <span class="font-medium">Superar traumas, ansiedades e padrões repetitivos.</span>
                     </li>
                 </ul>
-                <p class="mt-12 text-2xl font-bold gradient-text leading-relaxed bounce-in">Imagine como seria viver com mais clareza, paz e confiança para tomar decisões que realmente refletem o que você deseja para sua vida.</p>
+                <p class="mt-12 text-2xl font-bold gradient-text leading-relaxed" data-aos="zoom-in" data-aos-delay="500">Imagine viver com mais clareza, paz e confiança.</p>
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- Quem Sou Eu Section -->
-        <section id="sobre" class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 md:pr-12 slide-in-left">
-                <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
-                    <img src="images/1000400632.jpg" alt="Bianca Oliveira, psicóloga" class="w-full h-full object-cover">
-                </div>
-            </div>
-            <div class="md:w-1/2 mt-16 md:mt-0 text-center md:text-left slide-in-right">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8">Quem Sou Eu</h2>
-                <p class="text-xl text-brown-light leading-relaxed mb-6">Sou Bianca Oliveira, psicóloga (CRP 01/23012), e há anos ajudo pessoas a encontrarem caminhos para uma vida mais leve e significativa. Minha missão é oferecer um espaço seguro, de acolhimento e sem julgamentos, onde você pode se expressar livremente e, aos poucos, reconstruir sua história.</p>
-                <p class="text-xl text-brown-light leading-relaxed">Acredito que cada ser humano carrega dentro de si um potencial imenso de transformação – e meu papel é caminhar ao seu lado para que você descubra e desenvolva esse potencial.</p>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Como Posso Te Ajudar Section -->
-        <section id="ajuda" class="bg-beige py-24 md:py-32">
-            <div class="container mx-auto px-6 text-center max-w-6xl">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-16 fade-in-up">Como Posso Te Ajudar</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card bounce-in">
-                        <div class="icon-circle mx-auto mb-6">
-                            <i data-lucide="monitor" class="w-10 h-10"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brown-dark mb-4">Atendimento Online</h3>
-                        <p class="text-lg text-brown-light leading-relaxed">Ideal para quem busca praticidade, conforto e privacidade.</p>
-                    </div>
-                    <div class="card bounce-in">
-                        <div class="icon-circle mx-auto mb-6">
-                            <i data-lucide="building" class="w-10 h-10"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brown-dark mb-4">Atendimento Presencial</h3>
-                        <p class="text-lg text-brown-light leading-relaxed">Para quem valoriza o contato humano direto em consultório.</p>
-                    </div>
-                    <div class="card bounce-in">
-                        <div class="icon-circle mx-auto mb-6">
-                            <i data-lucide="heart-handshake" class="w-10 h-10"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brown-dark mb-4">Acompanhamento em Momentos de Crise</h3>
-                        <p class="text-lg text-brown-light leading-relaxed">Apoio imediato em situações de ansiedade intensa, luto, depressão ou grandes mudanças.</p>
-                    </div>
-                    <div class="card bounce-in">
-                        <div class="icon-circle mx-auto mb-6">
-                            <i data-lucide="brain" class="w-10 h-10"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brown-dark mb-4">Desenvolvimento Pessoal e Autoconhecimento</h3>
-                        <p class="text-lg text-brown-light leading-relaxed">Para quem deseja ir além do tratamento de sintomas e construir uma vida mais consciente, equilibrada e plena.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Histórias de Transformação Section -->
-        <section id="depoimentos" class="container mx-auto px-6 py-24 md:py-32 text-center max-w-6xl">
-            <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-16 fade-in-up">Histórias de Transformação</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <div class="card text-left slide-in-left">
-                    <div class="mb-4">
-                        <i data-lucide="quote" class="w-8 h-8 text-brown-dark"></i>
-                    </div>
-                    <p class="text-lg italic text-brown-dark leading-relaxed mb-6">Eu estava passando por uma fase difícil, cheia de inseguranças, e achava que não tinha saída. As sessões com a Bianca foram um divisor de águas. Hoje, consigo lidar melhor com meus sentimentos e me sinto mais forte para seguir em frente.</p>
-                    <p class="font-bold text-brown-dark">— Paciente em terapia online</p>
-                </div>
-                <div class="card text-left slide-in-right">
-                    <div class="mb-4">
-                        <i data-lucide="quote" class="w-8 h-8 text-brown-dark"></i>
-                    </div>
-                    <p class="text-lg italic text-brown-dark leading-relaxed mb-6">Eu não acreditava que conversar poderia mudar tanto. O que encontrei foi um espaço onde pude me ouvir, entender meus padrões e aprender a me respeitar. Isso me devolveu a confiança que eu havia perdido.</p>
-                    <p class="font-bold text-brown-dark">— Paciente em atendimento presencial</p>
-                </div>
-            </div>
-            <div class="max-w-4xl mx-auto bounce-in">
-                <h3 class="text-3xl font-bold gradient-text mb-8">Por que Escolher a Psicoterapia Agora?</h3>
-                <p class="text-xl text-brown-light leading-relaxed mb-6">Quantas vezes você já adiou algo importante na sua vida esperando o "momento certo"? A verdade é que a vida não espera. Enquanto você posterga, o peso emocional pode crescer, e as oportunidades de viver melhor ficam para trás.</p>
-                <p class="text-xl font-bold gradient-text leading-relaxed">👉 A psicoterapia é um investimento em você mesmo. É a chance de cuidar do que ninguém mais pode cuidar por você: sua mente, suas emoções e sua história.</p>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Conteúdo para Refletir Section -->
-        <section id="conteudo" class="bg-beige py-24 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8 fade-in-up">Conteúdos para Refletir</h2>
-                    <p class="text-xl text-brown-light leading-relaxed fade-in-up">Além dos atendimentos, compartilho conteúdos no meu Instagram para que você possa levar pequenos insights para o dia a dia:</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg bounce-in">
-                        <div class="w-full h-64 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" style="background-image: url('images/1000400447.jpg');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Fortaleça sua mente com atitudes simples.</p>
-                        </div>
-                    </a>
-                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg bounce-in">
-                        <img src="images/1000400399.jpg" alt="Pessoa em momento de crise, recebendo apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Maneiras de lidar com momentos de crise emocional.</p>
-                        </div>
-                    </a>
-                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg bounce-in">
-                        <img src="images/1000400424.jpg" alt="Mãos unidas simbolizando relacionamentos e apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Estratégias para construir relações mais saudáveis.</p>
-                        </div>
-                    </a>
-                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg bounce-in">
-                        <img src="images/1000400422.jpg" alt="Post sobre a importância da Saúde Mental" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">A importância da terapia como prática de autocuidado.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Agende Sua Sessão Hoje Section -->
-        <section id="contato" class="py-24 md:py-32 text-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-brown-dark/10 to-brown-light/10"></div>
-            <div class="container mx-auto px-6 max-w-4xl relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8 fade-in-up">Agende Sua Sessão Hoje</h2>
-                <p class="text-xl text-brown-light leading-relaxed mb-6 fade-in-up">Você já deu o primeiro passo apenas por estar aqui, buscando informações. Agora, dê o segundo passo: comece a transformar sua vida hoje mesmo.</p>
-                <p class="text-xl text-brown-light leading-relaxed mb-12 fade-in-up">Entre em contato e escolha a modalidade de atendimento que melhor se encaixa na sua rotina. Lembre-se: o cuidado com sua saúde mental é o maior ato de amor-próprio que você pode praticar.</p>
-                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary font-bold py-5 px-12 rounded-full shadow-2xl text-xl inline-flex items-center space-x-3 pulse-animation bounce-in">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i>
-                    <span>💬 Clique aqui e agende sua consulta</span>
-                </a>
-                <p class="mt-8 text-lg text-brown-light fade-in-up">Não espere mais para cuidar do que realmente importa: você.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
+        </main>
+    
     <footer class="glass-effect py-12">
-        <div class="container mx-auto px-6 text-center text-brown-light">
-            <div class="floating-animation">
+        <div class="container mx-auto px-6 text-center text-brand-light">
+            <div data-aos="fade-up">
                 <p class="text-2xl font-bold gradient-text mb-2">Bianca Oliveira – Psicóloga</p>
                 <p class="text-lg mb-6">CRP 01/23012</p>
             </div>
-            <div class="flex justify-center space-x-8 mb-8">
-                <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle hover:scale-110 transition-all duration-300">
+            <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle" aria-label="Contato via WhatsApp">
                     <i data-lucide="phone" class="w-6 h-6"></i>
                 </a>
-                <a href="https://instagram.com/seu_usuario" target="_blank" class="icon-circle hover:scale-110 transition-all duration-300">
+                <a href="https://instagram.com/seu_usuario" target="_blank" class="icon-circle" aria-label="Perfil no Instagram">
                     <i data-lucide="instagram" class="w-6 h-6"></i>
                 </a>
             </div>
-            <p class="text-sm max-w-3xl mx-auto leading-relaxed mb-6">
+            <p class="text-sm max-w-3xl mx-auto leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="200">
                 Este site segue as diretrizes do Código de Ética Profissional do Psicólogo. As informações aqui contidas têm caráter informativo e não substituem uma consulta psicológica.
             </p>
-            <p class="text-sm">
+            <p class="text-sm" data-aos="fade-up" data-aos-delay="300">
                 &copy; <span id="year"></span> Bianca Oliveira. Todos os direitos reservados.
             </p>
         </div>
     </footer>
 
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll progress indicator
-        const scrollIndicator = document.getElementById('scrollIndicator');
-        
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
-            
-            scrollIndicator.style.transform = `scaleX(${scrollPercent})`;
-        });
-
-        // Parallax effect for background sections
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax-bg');
-            
-            parallaxElements.forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Typewriter effect completion
-        setTimeout(() => {
-            const typewriterElement = document.querySelector('.typewriter');
-            if (typewriterElement) {
-                typewriterElement.style.borderRight = 'none';
-            }
-        }, 4000);
-
-        // Set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and animated elements
-        document.querySelectorAll('.card, .floating-animation').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add hover effects to cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click animation to buttons
-        document.querySelectorAll('.btn-primary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add scroll-triggered animations
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .bounce-in');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('animate-in');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Trigger animation on load
-        animateOnScroll();
-
-        // Add floating animation to elements on hover
-        document.querySelectorAll('.icon-circle').forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                icon.style.animation = 'floating 0.5s ease-in-out';
-            });
-            
-            icon.addEventListener('mouseleave', () => {
-                icon.style.animation = '';
-            });
-        });
-
-        // Add dynamic background color change on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPercent = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
-            const opacity = Math.min(scrollPercent * 0.3, 0.3);
-            document.body.style.background = `linear-gradient(135deg, rgba(232, 221, 208, ${1 - opacity}) 0%, rgba(212, 196, 176, ${1 - opacity}) 100%)`;
-        });
-    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
