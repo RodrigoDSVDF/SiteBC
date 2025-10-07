@@ -1,113 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF--T">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bianca Oliveira - Psicóloga | CRP 01/23012</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind.config.js"></script>
+    <script>
+        // Configuração do Tailwind (integrada aqui)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-background': '#E8DDD0',
+                        'brand-beige': '#D4C4B0',
+                        'brand-dark': '#4A3A28',
+                        'brand-light': '#6A5A48',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        /* Estilos de componentes que usam @apply do Tailwind */
+        .nav-link {
+            @apply text-brand-light hover:text-brand-dark transition-all duration-300 hover:scale-110 font-medium;
+        }
+        .mobile-nav-link {
+            @apply block py-3 text-brand-light hover:text-brand-dark transition font-medium;
+        }
+        .btn-primary {
+            @apply bg-gradient-to-r from-brand-light to-brand-dark text-white font-semibold py-4 px-10 rounded-full shadow-lg text-lg inline-flex items-center space-x-2 transition-all duration-300;
+        }
+        .btn-primary:hover {
+            @apply transform -translate-y-1 shadow-2xl;
+        }
+        .card {
+            @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-400;
+        }
+        .card:hover {
+            @apply transform -translate-y-2 scale-102 shadow-2xl border-brand-light/30;
+        }
+        .icon-circle {
+            @apply bg-gradient-to-r from-brand-beige to-gray-300 text-brand-dark rounded-full p-4 inline-flex items-center justify-center shadow-md transition-transform duration-500;
+        }
+        .icon-circle:hover {
+            @apply transform rotate-12 scale-110;
+        }
+        .section-divider {
+            @apply h-px bg-gradient-to-r from-transparent via-brand-light to-transparent my-16;
+        }
+        .glass-effect {
+            @apply bg-white/10 backdrop-blur-lg border-t border-b border-white/20;
+        }
+        .gradient-text {
+            @apply bg-gradient-to-r from-brand-dark to-brand-light bg-clip-text text-transparent;
+        }
+        .image-hover-effect:hover img {
+            @apply transform scale-105;
+        }
+        .image-hover-effect img {
+            @apply transition-transform duration-500 ease-in-out;
+        }
+        .scroll-indicator {
+            @apply fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-dark to-brand-light origin-left scale-x-0 z-50 transition-transform;
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #4A3A28;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4A3A28; }
+        }
+    </style>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 <body class="bg-brand-background text-brand-dark antialiased overflow-x-hidden">
 
-    <div id="scrollIndicator" class="scroll-indicator"></div>
-
-    <header id="inicio" class="glass-effect sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" aria-label="Voltar ao início">
-                <img src="images/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-transform duration-300 hover:scale-110">
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="nav-link">Início</a>
-                <a href="#psicoterapia" class="nav-link">Psicoterapia</a>
-                <a href="#sobre" class="nav-link">Sobre Mim</a>
-                <a href="#ajuda" class="nav-link">Como Ajudo</a>
-                <a href="#depoimentos" class="nav-link">Depoimentos</a>
-                <a href="#conteudo" class="nav-link">Conteúdo</a>
-                <a href="#contato" class="nav-link">Contato</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Abrir menu">
-                <i data-lucide="menu" class="text-brand-dark w-6 h-6"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden glass-effect px-6 pb-4">
-            <a href="#inicio" class="mobile-nav-link">Início</a>
-            <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
-            <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
-            <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
-            <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
-            <a href="#conteudo" class="mobile-nav-link">Conteúdo</a>
-            <a href="#contato" class="mobile-nav-link">Contato</a>
-        </div>
-    </header>
-
-    <main>
-        <section class="container mx-auto px-6 py-24 md:py-40 flex flex-col md:flex-row items-center text-center md:text-left min-h-screen">
-            <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
-                <div class="mx-auto mb-8 w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 typewriter">Seja bem-vindo(a)!</h1>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6" data-aos="fade-up" data-aos-delay="400">Cuidar da sua mente é tão essencial quanto cuidar do corpo.</h2>
-                <p class="text-xl text-brand-light leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="500">Muitas pessoas ignoram sinais de estresse, ansiedade ou tristeza, acreditando que devem "dar conta" sozinhas. Mas ninguém precisa enfrentar tudo sem apoio. É aqui que a psicoterapia pode transformar vidas.</p>
-                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" data-aos="fade-up" data-aos-delay="600">
-                    <i data-lucide="phone" class="w-5 h-5"></i>
-                    <span>Agende sua consulta agora</span>
-                </a>
-            </div>
-            <div class="md:w-1/2 mt-16 md:mt-0" data-aos="fade-left">
-                <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
-                    <img src="images/1000400422.jpg" alt="Mãos segurando blocos de madeira com o texto Saúde Mental" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <section id="psicoterapia" class="bg-brand-beige py-24 md:py-32">
-            <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-8" data-aos="fade-up">Por que a Psicoterapia é Transformadora?</h2>
-                <p class="text-xl text-brand-light mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">A terapia é um processo de autoconhecimento e reconstrução. É o momento em que você aprende a:</p>
-                <ul class="space-y-6 text-lg text-brand-dark text-left mx-auto max-w-2xl">
-                    <li class="flex items-start space-x-4" data-aos="fade-up">
-                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
-                        <span class="font-medium">Organizar pensamentos que parecem confusos.</span>
-                    </li>
-                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
-                        <span class="font-medium">Encontrar equilíbrio emocional diante dos desafios.</span>
-                    </li>
-                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
-                        <span class="font-medium">Fortalecer sua autoestima e se reconectar com sua essência.</span>
-                    </li>
-                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
-                        <span class="font-medium">Construir relações mais saudáveis.</span>
-                    </li>
-                    <li class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="icon-circle"><i data-lucide="check-circle" class="w-6 h-6"></i></div>
-                        <span class="font-medium">Superar traumas, ansiedades e padrões repetitivos.</span>
-                    </li>
-                </ul>
-                <p class="mt-12 text-2xl font-bold gradient-text leading-relaxed" data-aos="zoom-in" data-aos-delay="500">Imagine viver com mais clareza, paz e confiança.</p>
-            </div>
-        </section>
-
-        </main>
-    
     <footer class="glass-effect py-12">
         <div class="container mx-auto px-6 text-center text-brand-light">
-            <div data-aos="fade-up">
-                <p class="text-2xl font-bold gradient-text mb-2">Bianca Oliveira – Psicóloga</p>
-                <p class="text-lg mb-6">CRP 01/23012</p>
-            </div>
             <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
                 <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle" aria-label="Contato via WhatsApp">
                     <i data-lucide="phone" class="w-6 h-6"></i>
@@ -116,17 +105,12 @@
                     <i data-lucide="instagram" class="w-6 h-6"></i>
                 </a>
             </div>
-            <p class="text-sm max-w-3xl mx-auto leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="200">
-                Este site segue as diretrizes do Código de Ética Profissional do Psicólogo. As informações aqui contidas têm caráter informativo e não substituem uma consulta psicológica.
-            </p>
-            <p class="text-sm" data-aos="fade-up" data-aos-delay="300">
-                &copy; <span id="year"></span> Bianca Oliveira. Todos os direitos reservados.
-            </p>
-        </div>
+            </div>
     </footer>
-
+    
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
