@@ -46,11 +46,11 @@
             @apply transform -translate-y-1 shadow-2xl;
         }
         .card {
-            /* CORRIGIDO de duration-400 para duration-300 */
             @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-300;
         }
         .card:hover {
-            @apply transform -translate-y-2 scale-102 shadow-2xl border-brand-light/30;
+            /* CORRIGIDO de scale-102 para scale-105 */
+            @apply transform -translate-y-2 scale-105 shadow-2xl border-brand-light/30;
         }
         .icon-circle {
             @apply bg-gradient-to-r from-brand-beige to-gray-300 text-brand-dark rounded-full p-4 inline-flex items-center justify-center shadow-md transition-transform duration-500;
@@ -100,7 +100,7 @@
     <header id="inicio" class="glass-effect sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#inicio" class="text-xl font-bold text-brand-dark">
-                <img src="imagens/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-all duration-300 hover:scale-110">
+                <img src="images/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-all duration-300 hover:scale-110">
             </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#inicio" class="nav-link">Início</a>
@@ -130,7 +130,7 @@
         <section class="container mx-auto px-6 py-24 md:py-40 flex flex-col md:flex-row items-center text-center md:text-left min-h-screen">
             <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
                 <div class="mb-8 mx-auto w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="imagens/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
+                    <img src="images/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold gradient-text leading-tight mb-6 typewriter">Seja bem-vindo(a)!</h1>
                 <h2 class="text-3xl md:text-4xl font-bold text-brand-dark leading-tight mb-6" data-aos="fade-up" data-aos-delay="400">Cuidar da sua mente é tão essencial quanto cuidar do corpo.</h2>
@@ -142,7 +142,7 @@
             </div>
             <div class="md:w-1/2 mt-16 md:mt-0" data-aos="fade-left">
                 <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
-                    <img src="imagens/1000400422.jpg" alt="Mãos segurando blocos de madeira com o texto Saúde Mental" class="w-full h-full object-cover">
+                    <img src="images/1000400422.jpg" alt="Mãos segurando blocos de madeira com o texto Saúde Mental" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -184,7 +184,7 @@
         <section id="sobre" class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 md:pr-12" data-aos="fade-right">
                 <div class="image-hover-effect rounded-3xl shadow-2xl overflow-hidden">
-                    <img src="imagens/1000400632.jpg" alt="Bianca Oliveira, psicóloga" class="w-full h-full object-cover">
+                    <img src="images/1000400632.jpg" alt="Bianca Oliveira, psicóloga" class="w-full h-full object-cover">
                 </div>
             </div>
             <div class="md:w-1/2 mt-16 md:mt-0 text-center md:text-left" data-aos="fade-left">
@@ -257,25 +257,25 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in">
-                        <div class="w-full h-64 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" style="background-image: url('imagens/1000400447.jpg');"></div>
+                        <div class="w-full h-64 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" style="background-image: url('images/1000400447.jpg');"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Fortaleça sua mente com atitudes simples.</p>
                         </div>
                     </a>
                     <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="imagens/1000400399.jpg" alt="Pessoa em momento de crise, recebendo apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/1000400399.jpg" alt="Pessoa em momento de crise, recebendo apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Maneiras de lidar com momentos de crise emocional.</p>
                         </div>
                     </a>
                     <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="imagens/1000400424.jpg" alt="Mãos unidas simbolizando relacionamentos e apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/1000400424.jpg" alt="Mãos unidas simbolizando relacionamentos e apoio" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Estratégias para construir relações mais saudáveis.</p>
                         </div>
                     </a>
                     <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="imagens/1000400422.jpg" alt="Post sobre a importância da Saúde Mental" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/1000400422.jpg" alt="Post sobre a importância da Saúde Mental" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <p class="text-white font-bold text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">A importância da terapia como prática de autocuidado.</p>
                         </div>
