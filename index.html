@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Bianca Oliveira - Psicóloga | CRP 01/23012</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-background': '#E8DDD0',
+                        'brand-beige': '#D4C4B0',
+                        'brand-dark': '#4A3A28',
+                        'brand-light': '#6A5A48',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style type="text/tailwindcss">
+        @layer base {
+            html, body {
+                @apply max-w-full overflow-x-hidden;
+            }
+        }
+
+        .nav-link {
+            @apply text-brand-light hover:text-brand-dark transition-all duration-300 hover:scale-110 font-medium;
+        }
+        .mobile-nav-link {
+            @apply block py-4 text-brand-light hover:text-brand-dark transition font-semibold border-b border-brand-dark/10 text-center;
+        }
+        .btn-primary {
+            @apply bg-gradient-to-r from-brand-light to-brand-dark text-white font-semibold py-4 px-10 rounded-full shadow-lg text-lg inline-flex items-center space-x-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 active:scale-95;
+        }
+        .card {
+            @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+        }
+        .icon-circle {
+            @apply bg-gradient-to-r from-brand-beige to-gray-300 text-brand-dark rounded-full p-4 inline-flex items-center justify-center shadow-md transition-transform duration-500 hover:rotate-12 hover:scale-110;
+        }
+        .section-divider {
+            @apply h-px bg-gradient-to-r from-transparent via-brand-light to-transparent my-16;
+        }
+        .glass-effect {
+            @apply bg-white/20 backdrop-blur-xl border-b border-white/20;
+        }
+        .gradient-text {
+            @apply bg-gradient-to-r from-brand-dark to-brand-light bg-clip-text text-transparent;
+        }
+        .scroll-indicator {
+            @apply fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-dark to-brand-light origin-left scale-x-0 z-[100] transition-transform duration-75;
+        }
+
+        /* ANIMAÇÃO TYPEWRITER ULTRA RÁPIDA */
+        .typewriter {
+            @apply overflow-hidden border-r-4 border-brand-dark inline-block align-bottom;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 1.2s steps(20, end) forwards, blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4A3A28; }
+        }
+
+        /* Ajuste para não quebrar o mobile horizontalmente */
+        @media (max-width: 640px) {
+            .typewriter {
+                @apply whitespace-normal border-r-0;
+                width: auto;
+                animation: fadeInQuick 0.8s ease-out forwards;
+            }
+        }
+
+        @keyframes fadeInQuick {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-background text-brand-dark antialiased">
+
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Header / Nav -->
+    <header id="inicio" class="glass-effect sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-xl font-bold text-brand-dark">
+                <img src="images/1000400410.jpg" alt="Logo" class="h-14 w-auto transition-all duration-300 hover:scale-110">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#psicoterapia" class="nav-link">Psicoterapia</a>
+                <a href="#sobre" class="nav-link">Sobre Mim</a>
+                <a href="#ajuda" class="nav-link">Como Ajudo</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#conteudo" class="nav-link">Conteúdo</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Menu">
+                <i data-lucide="menu" class="text-brand-dark w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect absolute w-full left-0 bg-brand-background/95 border-b border-brand-beige shadow-xl">
+            <div class="px-6 py-4 flex flex-col">
+                <a href="#inicio" class="mobile-nav-link">Início</a>
+                <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
+                <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
+                <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
+                <a href="#contato" class="mobile-nav-link">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-12 md:py-32 flex flex-col md:flex-row items-center min-h-[85vh]">
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                <div class="mb-4 inline-block bg-white/30 px-3 py-1 rounded-full text-xs font-bold text-brand-light">
+                    PSICÓLOGA CRP 01/23012
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text leading-tight mb-6 h-[1.2em]">
+                    <span class="typewriter">Seja bem-vindo(a)!</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold text-brand-dark leading-tight mb-8" data-aos="fade-up" data-aos-delay="400">
+                    Sua saúde mental é prioridade.
+                </h2>
+                <p class="text-lg text-brand-light leading-relaxed mb-10 max-w-lg mx-auto md:mx-0" data-aos="fade-up" data-aos-delay="500">
+                    A psicoterapia é o caminho para o autoconhecimento e o equilíbrio emocional. Ninguém precisa enfrentar os desafios da vida sozinho.
+                </p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" data-aos="fade-up" data-aos-delay="600">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    <span>Agendar Sessão</span>
+                </a>
+            </div>
+            
+            <div class="w-full md:w-1/2 mt-16 md:mt-0" data-aos="zoom-in">
+                <div class="relative max-w-md mx-auto">
+                    <div class="absolute inset-0 bg-brand-beige rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                    <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/50">
+                        <img src="images/1000400628.jpg" alt="Bianca Oliveira" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Conteúdos Instagram -->
+        <section id="conteudo" class="bg-brand-beige/30 py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold gradient-text mb-6">Conteúdos para Refletir</h2>
+                    <p class="text-brand-light">Pequenos insights para levar mais equilíbrio ao seu dia a dia.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in">
+                        <img src="images/1000400447.jpg" alt="Conteúdo 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-4">
+                            <p class="text-white text-center font-bold">Fortaleça sua mente.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/1000400399.jpg" alt="Conteúdo 2" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-4">
+                            <p class="text-white text-center font-bold">Lidando com crises.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="images/1000400424.jpg" alt="Conteúdo 3" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-4">
+                            <p class="text-white text-center font-bold">Relações saudáveis.</p>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="images/1000400422.jpg" alt="Conteúdo 4" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-4">
+                            <p class="text-white text-center font-bold">A terapia como autocuidado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Final -->
+        <section id="contato" class="py-24 text-center">
+            <div class="container mx-auto px-6 max-w-4xl" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-bold gradient-text mb-8">Agende Sua Sessão Hoje</h2>
+                <p class="text-xl text-brand-light mb-12">Não espere mais para cuidar do que realmente importa: você.</p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary scale-110">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    <span>💬 Iniciar Conversa no WhatsApp</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect py-16">
+        <div class="container mx-auto px-6 text-center text-brand-light">
+            <div data-aos="fade-up">
+                <p class="text-2xl font-bold gradient-text mb-2">Bianca Oliveira – Psicóloga</p>
+                <p class="text-lg mb-8">CRP 01/23012</p>
+            </div>
+            <div class="flex justify-center space-x-8 mb-12" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle" aria-label="WhatsApp">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                </a>
+                <a href="https://instagram.com/psibiancaa" target="_blank" class="icon-circle" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-sm max-w-3xl mx-auto leading-relaxed opacity-60">
+                Este site segue as diretrizes do Código de Ética Profissional do Psicólogo.
+            </p>
+            <p class="text-sm mt-8">
+                &copy; <span id="year"></span> Bianca Oliveira. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ícones
+            lucide.createIcons();
+            
+            // Animações de Scroll
+            AOS.init({ duration: 800, once: true });
+            
+            // Ano Atual
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Menu Mobile
+            const menuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Scroll Indicator
+            const scrollInd = document.getElementById('scrollIndicator');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollInd.style.transform = `scaleX(${scrolled / 100})`;
+            });
+
+            // Fechar menu mobile ao clicar em link
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
