@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca Oliveira - Psic\u00f3loga | CRP 01/23012</title>
+    <title>Bianca Oliveira - Psicóloga | CRP 01/23012</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,222 +21,429 @@
                         'brand-dark': '#4A3A28',
                         'brand-light': '#6A5A48',
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* RESET SCROLL HORIZONTAL */
+        html, body { overflow-x: hidden; max-width: 100%; }
+        *, *::before, *::after { box-sizing: border-box; }
 
-    <style type="text/tailwindcss">
-        .nav-link {
-            @apply text-brand-light hover:text-brand-dark transition-all duration-300 hover:scale-110 font-medium;
+        body {
+            background: linear-gradient(135deg, #E8DDD0 0%, #D4C4B0 100%);
+            color: #4A3A28;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
         }
-        .mobile-nav-link {
-            @apply block py-3 text-brand-light hover:text-brand-dark transition font-medium;
-        }
-        .btn-primary {
-            @apply bg-gradient-to-r from-brand-light to-brand-dark text-white font-semibold py-4 px-10 rounded-full shadow-lg text-lg inline-flex items-center space-x-2 transition-all duration-300;
-        }
-        .btn-primary:hover {
-            @apply transform -translate-y-1 shadow-2xl;
-        }
-        .card {
-            @apply bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-lg transition-all duration-300;
-        }
-        .card:hover {
-            @apply transform -translate-y-2 shadow-2xl border-brand-light/30;
-        }
-        .icon-circle {
-            @apply bg-gradient-to-r from-brand-beige to-gray-300 text-brand-dark rounded-full p-4 inline-flex items-center justify-center shadow-md transition-transform duration-500;
-        }
-        .icon-circle:hover {
-            @apply transform rotate-12 scale-110;
-        }
-        .section-divider {
-            @apply h-px bg-gradient-to-r from-transparent via-brand-light to-transparent my-16;
+
+        /* UTILITÁRIOS */
+        .gradient-text {
+            background: linear-gradient(to right, #4A3A28, #6A5A48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .glass-effect {
-            @apply bg-white/10 backdrop-blur-lg border-t border-b border-white/20;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255,255,255,.25);
+            border-bottom: 1px solid rgba(255,255,255,.25);
         }
-        .gradient-text {
-            @apply bg-gradient-to-r from-brand-dark to-brand-light bg-clip-text text-transparent;
-        }
-        .image-hover-effect:hover img {
-            @apply transform scale-105;
-        }
-        .image-hover-effect img {
-            @apply transition-transform duration-500 ease-in-out;
-        }
-        .scroll-indicator {
-            @apply fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-dark to-brand-light origin-left z-50;
-            transform: scaleX(0);
-            transition: transform 0.1s linear;
-        }
-    </style>
-
-    <style>
-        /* \u2705 CORRE\u00c7\u00c3O: overflow-x no html e body para evitar scroll horizontal */
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #6A5A48 50%, transparent);
+            margin: 4rem auto;
+            max-width: 1100px;
         }
 
-        /* \u2705 TYPEWRITER mais r\u00e1pido (1.8s) e responsivo */
-        .typewriter-wrap {
-            display: inline-block;
-            overflow: hidden;
-            max-width: 100%;
+        /* BOTÃO */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: .6rem;
+            background: linear-gradient(to right, #6A5A48, #4A3A28);
+            color: #fff; font-weight: 700; font-size: 1.05rem;
+            padding: .9rem 2.2rem; border-radius: 9999px;
+            box-shadow: 0 8px 28px rgba(74,58,40,.3);
+            transition: transform .3s, box-shadow .3s;
+            text-decoration: none;
         }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(74,58,40,.42); }
+
+        /* NAVEGAÇÃO */
+        .nav-link { color: #6A5A48; font-weight: 500; text-decoration: none; transition: color .25s, transform .25s; display: inline-block; }
+        .nav-link:hover { color: #4A3A28; transform: scale(1.08); }
+        .mobile-nav-link { display: block; padding: .7rem 0; color: #6A5A48; font-weight: 500; text-decoration: none; transition: color .25s; border-bottom: 1px solid rgba(74,58,40,.08); }
+        .mobile-nav-link:hover { color: #4A3A28; }
+
+        /* ICON CIRCLE */
+        .icon-circle {
+            background: linear-gradient(to right, #D4C4B0, #c8c8c8);
+            color: #4A3A28; border-radius: 9999px; padding: .9rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,.1);
+            transition: transform .4s; text-decoration: none;
+        }
+        .icon-circle:hover { transform: rotate(12deg) scale(1.1); }
+
+        /* SCROLL INDICATOR */
+        #scrollIndicator {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(to right, #4A3A28, #6A5A48);
+            transform-origin: left; transform: scaleX(0);
+            z-index: 9999; transition: transform .1s linear;
+        }
+
+        /* TYPEWRITER — RÁPIDO */
+        .typewriter-wrap { display: block; overflow: hidden; max-width: 100%; }
         .typewriter {
             display: inline-block;
             overflow: hidden;
-            border-right: .15em solid #4A3A28;
             white-space: nowrap;
+            border-right: .12em solid #4A3A28;
             max-width: 100%;
-            animation: typing 1.8s steps(30, end) forwards, blink-caret .75s step-end infinite;
+            animation: typing 1.4s steps(22, end) forwards, blink .7s step-end infinite;
         }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #4A3A28; }
-        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #4A3A28 } }
 
-        /* Depoimentos - card de depoimento */
-        .depoimento-card {
-            background: rgba(255,255,255,0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.35);
+        /* CARDS CONTEÚDO */
+        .content-card {
+            position: relative; overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 6px 22px rgba(0,0,0,.13);
+            display: block; text-decoration: none;
+        }
+        .content-card img, .content-card .bg-cover-img {
+            display: block; width: 100%; height: 13rem; object-fit: cover;
+            transition: transform .5s ease;
+        }
+        .content-card .bg-cover-img { background-size: cover; background-position: center; }
+        .content-card:hover img, .content-card:hover .bg-cover-img { transform: scale(1.08); }
+        .content-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.72), transparent);
+            display: flex; align-items: flex-end; justify-content: center;
+            opacity: 0; transition: opacity .3s; padding: 1rem;
+        }
+        .content-card:hover .content-overlay { opacity: 1; }
+        .content-overlay p {
+            color: #fff; font-weight: 700; text-align: center; font-size: .9rem;
+            transform: translateY(10px); transition: transform .3s; margin: 0;
+        }
+        .content-card:hover .content-overlay p { transform: translateY(0); }
+
+        /* DEPOIMENTOS */
+        .dep-card {
+            background: rgba(255,255,255,.65);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,.4);
             border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(74,58,40,0.10);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2rem 1.75rem;
+            box-shadow: 0 8px 32px rgba(74,58,40,.1);
+            transition: transform .35s, box-shadow .35s;
             position: relative;
         }
-        .depoimento-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(74,58,40,0.18);
-        }
-        .depoimento-card::before {
+        .dep-card:hover { transform: translateY(-7px); box-shadow: 0 20px 50px rgba(74,58,40,.18); }
+        .dep-card::before {
             content: '\201C';
-            font-size: 5rem;
-            color: #D4C4B0;
-            position: absolute;
-            top: -0.5rem;
-            left: 1.5rem;
-            line-height: 1;
-            font-family: Georgia, serif;
+            font-size: 5.5rem; line-height: 1;
+            color: #D4C4B0; font-family: Georgia, serif;
+            position: absolute; top: .25rem; left: 1.25rem;
+        }
+        .dep-body { padding-top: 2.75rem; }
+        .stars { color: #C4A055; font-size: 1rem; letter-spacing: 2px; margin-bottom: .75rem; }
+        .dep-text { color: #6A5A48; line-height: 1.8; font-size: .96rem; margin: 0 0 1.5rem; }
+        .dep-author { display: flex; align-items: center; gap: .75rem; }
+        .dep-avatar {
+            width: 2.75rem; height: 2.75rem; border-radius: 9999px;
+            background: linear-gradient(135deg, #D4C4B0, #6A5A48);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
         }
 
-        /* Estrelas */
-        .stars { color: #C4A267; font-size: 1.1rem; letter-spacing: 2px; }
+        /* WHATSAPP FLOAT */
+        .wa-float {
+            position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 998;
+            background: #25D366; color: #fff; border-radius: 9999px;
+            width: 3.5rem; height: 3.5rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,.5);
+            transition: transform .3s, box-shadow .3s; text-decoration: none;
+        }
+        .wa-float:hover { transform: scale(1.12) translateY(-4px); box-shadow: 0 10px 32px rgba(37,211,102,.6); }
 
-        /* Se\u00e7\u00e3o conte\u00fado grid */
-        .conteudo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-        }
+        /* GRID DEPOIMENTOS */
+        .dep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.75rem; }
 
-        /* Floating WhatsApp button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            width: 3.5rem;
-            height: 3.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.12) translateY(-3px);
-            box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-        }
-        .whatsapp-float svg {
-            width: 1.8rem;
-            height: 1.8rem;
-        }
+        /* GRID CONTEÚDO */
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* LAYOUT HERO */
+        .hero-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
+        .hero-left { flex: 1 1 300px; }
+        .hero-right { flex: 1 1 300px; }
     </style>
 </head>
-<body class="bg-brand-background text-brand-dark antialiased">
+<body>
 
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <div id="scrollIndicator"></div>
 
-    <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5561998712024" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5561998712024" target="_blank" class="wa-float" aria-label="WhatsApp">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
     </a>
 
     <!-- HEADER -->
-    <header id="inicio" class="glass-effect sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" class="text-xl font-bold text-brand-dark">
-                <img src="images/1000400410.jpg" alt="Logo Bianca Oliveira Psicologia" class="h-16 w-auto transition-all duration-300 hover:scale-110">
+    <header id="inicio" class="glass-effect" style="position:sticky;top:0;z-index:50;box-shadow:0 2px 20px rgba(74,58,40,.1);">
+        <div style="max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;display:flex;justify-content:space-between;align-items:center;">
+            <a href="#inicio" style="display:block;">
+                <img src="images/1000400410.jpg" alt="Logo" style="height:4rem;width:auto;transition:transform .3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
             </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="nav-link">In\u00edcio</a>
+            <nav id="desktop-nav" style="display:flex;gap:2rem;">
+                <a href="#inicio" class="nav-link">Início</a>
                 <a href="#psicoterapia" class="nav-link">Psicoterapia</a>
                 <a href="#sobre" class="nav-link">Sobre Mim</a>
                 <a href="#ajuda" class="nav-link">Como Ajudo</a>
                 <a href="#depoimentos" class="nav-link">Depoimentos</a>
-                <a href="#conteudo" class="nav-link">Conte\u00fado</a>
+                <a href="#conteudo" class="nav-link">Conteúdo</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden transition-all duration-300 hover:scale-110 p-2" aria-label="Abrir menu">
-                <i data-lucide="menu" class="text-brand-dark w-6 h-6"></i>
+            <button id="mob-btn" style="background:none;border:none;cursor:pointer;padding:.5rem;display:none;" aria-label="Menu">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A3A28" stroke-width="2.2">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden glass-effect px-6 pb-4">
-            <a href="#inicio" class="mobile-nav-link">In\u00edcio</a>
-            <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
-            <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
-            <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
-            <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
-            <a href="#conteudo" class="mobile-nav-link">Conte\u00fado</a>
-            <a href="#contato" class="mobile-nav-link">Contato</a>
+        <div id="mob-menu" style="display:none;" class="glass-effect">
+            <div style="padding:.5rem 1.5rem 1.25rem;">
+                <a href="#inicio" class="mobile-nav-link">Início</a>
+                <a href="#psicoterapia" class="mobile-nav-link">Psicoterapia</a>
+                <a href="#sobre" class="mobile-nav-link">Sobre Mim</a>
+                <a href="#ajuda" class="mobile-nav-link">Como Ajudo</a>
+                <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
+                <a href="#conteudo" class="mobile-nav-link">Conteúdo</a>
+                <a href="#contato" class="mobile-nav-link">Contato</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="container mx-auto px-6 py-24 md:py-40 flex flex-col md:flex-row items-center text-center md:text-left min-h-screen">
-            <div class="md:w-1/2 md:pr-12 w-full" data-aos="fade-right">
-                <div class="mb-8 mx-auto md:mx-0 w-48 h-48 rounded-full overflow-hidden shadow-2xl image-hover-effect" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/1000400628.jpg" alt="Imagem de Boas-vindas" class="w-full h-full object-cover">
+
+        <!-- HERO -->
+        <section style="max-width:1200px;margin:0 auto;padding:5rem 1.5rem 4rem;">
+            <div class="hero-inner">
+
+                <!-- Esquerda -->
+                <div class="hero-left" data-aos="fade-right">
+                    <div style="width:11rem;height:11rem;border-radius:9999px;overflow:hidden;box-shadow:0 16px 50px rgba(74,58,40,.25);margin:0 auto 2rem;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="images/1000400628.jpg" alt="Bianca Oliveira" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+
+                    <div class="typewriter-wrap" style="margin-bottom:1.25rem;">
+                        <h1 class="typewriter gradient-text" style="font-size:clamp(1.9rem,4.5vw,3.25rem);font-weight:800;line-height:1.2;margin:0;">
+                            Seja bem-vindo(a)!
+                        </h1>
+                    </div>
+
+                    <h2 style="font-size:clamp(1.15rem,2.5vw,1.6rem);font-weight:700;color:#4A3A28;margin:0 0 1.25rem;line-height:1.45;" data-aos="fade-up" data-aos-delay="350">
+                        Cuidar da sua mente é tão essencial quanto cuidar do corpo.
+                    </h2>
+
+                    <p style="font-size:1rem;color:#6A5A48;line-height:1.85;margin:0 0 2rem;" data-aos="fade-up" data-aos-delay="450">
+                        No entanto, muitas pessoas passam anos ignorando sinais de estresse, ansiedade, tristeza profunda ou dificuldades nos relacionamentos, acreditando que vão "dar conta" sozinhas. Mas a verdade é: ninguém precisa enfrentar tudo sozinho. E é justamente nesse ponto que a psicoterapia pode transformar vidas.
+                    </p>
+
+                    <div data-aos="fade-up" data-aos-delay="550">
+                        <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Agendar Consulta
+                        </a>
+                    </div>
                 </div>
 
-                <!-- \u2705 TYPEWRITER corrigido e mais r\u00e1pido -->
-                <div class="typewriter-wrap mb-6">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text leading-tight typewriter">Seja bem-vindo(a)!</h1>
+                <!-- Direita — conteúdo -->
+                <div id="conteudo" class="hero-right" data-aos="fade-left" data-aos-delay="150">
+                    <div class="content-grid">
+                        <a href="#" class="content-card" data-aos="zoom-in">
+                            <div class="bg-cover-img" style="background-image:url('images/1000400447.jpg');height:13rem;"></div>
+                            <div class="content-overlay"><p>Fortaleça sua mente com atitudes simples.</p></div>
+                        </a>
+                        <a href="#" class="content-card" data-aos="zoom-in" data-aos-delay="100">
+                            <img src="images/1000400399.jpg" alt="Crise emocional">
+                            <div class="content-overlay"><p>Maneiras de lidar com momentos de crise emocional.</p></div>
+                        </a>
+                        <a href="#" class="content-card" data-aos="zoom-in" data-aos-delay="200">
+                            <img src="images/1000400424.jpg" alt="Relacionamentos">
+                            <div class="content-overlay"><p>Estratégias para construir relações mais saudáveis.</p></div>
+                        </a>
+                        <a href="#" class="content-card" data-aos="zoom-in" data-aos-delay="300">
+                            <img src="images/1000400422.jpg" alt="Saúde Mental">
+                            <div class="content-overlay"><p>A importância da terapia como prática de autocuidado.</p></div>
+                        </a>
+                    </div>
                 </div>
 
-                <h2 class="text-2xl md:text-3xl font-bold text-brand-dark leading-tight mb-6" data-aos="fade-up" data-aos-delay="400">Cuidar da sua mente \u00e9 t\u00e3o essencial quanto cuidar do corpo.</h2>
-                <p class="text-lg md:text-xl text-brand-light leading-relaxed mb-10" data-aos="fade-up" data-aos-delay="500">No entanto, muitas pessoas passam anos ignorando sinais de estresse, ansiedade, tristeza profunda ou dificuldades nos relacionamentos, acreditando que v\u00e3o "dar conta" sozinhas. Mas a verdade \u00e9: ningu\u00e9m precisa enfrentar tudo sozinho. E \u00e9 justamente nesse ponto que a psicoterapia pode transformar vidas.</p>
+            </div>
+        </section>
 
-                <div data-aos="fade-up" data-aos-delay="600">
-                    <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span>Agendar Consulta</span>
-                    </a>
-                </div>
+        <div class="section-divider"></div>
+
+        <!-- DEPOIMENTOS -->
+        <section id="depoimentos" style="max-width:1200px;margin:0 auto;padding:4rem 1.5rem;">
+            <div style="text-align:center;margin-bottom:3rem;" data-aos="fade-up">
+                <h2 class="gradient-text" style="font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:800;margin:0 0 .75rem;">
+                    O Que Dizem Meus Pacientes
+                </h2>
+                <p style="font-size:1.05rem;color:#6A5A48;max-width:500px;margin:0 auto;">
+                    Histórias de transformação e cuidado com a saúde mental.
+                </p>
             </div>
 
-            <!-- Conte\u00fado / posts lado direito -->
-            <div class="md:w-1/2 mt-16 md:mt-0 w-full" data-aos="fade-left" data-aos-delay="200">
-                <div id="conteudo" class="conteudo-grid">
-                    <a href="#" class="block group relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in">
-                        <div class="w-full h-56 bg-cover
+            <div class="dep-grid">
+
+                <div class="dep-card" data-aos="fade-up">
+                    <div class="dep-body">
+                        <div class="stars">★★★★★</div>
+                        <p class="dep-text">"Comecei a terapia com a Bianca sem muita esperança, mas logo nas primeiras sessões percebi o quanto estava me ignorando. Hoje consigo reconhecer meus limites e me respeitar muito mais."</p>
+                        <div class="dep-author">
+                            <div class="dep-avatar">A</div>
+                            <div>
+                                <p style="font-weight:600;color:#4A3A28;margin:0;font-size:.95rem;">Ana Paula</p>
+                                <p style="font-size:.82rem;color:#6A5A48;margin:0;">Professora, 34 anos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dep-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="dep-body">
+                        <div class="stars">★★★★★</div>
+                        <p class="dep-text">"A Bianca tem um jeito muito acolhedor de conduzir as sessões. Me sinto seguro para falar sobre tudo. Em poucos meses noto uma diferença enorme no meu dia a dia e nos meus relacionamentos."</p>
+                        <div class="dep-author">
+                            <div class="dep-avatar">R</div>
+                            <div>
+                                <p style="font-weight:600;color:#4A3A28;margin:0;font-size:.95rem;">Ricardo M.</p>
+                                <p style="font-size:.82rem;color:#6A5A48;margin:0;">Engenheiro, 41 anos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dep-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="dep-body">
+                        <div class="stars">★★★★★</div>
+                        <p class="dep-text">"Estava passando por um momento muito difícil de ansiedade. A Bianca me mostrou que buscar apoio é um ato de coragem. Recomendo de coração para qualquer pessoa."</p>
+                        <div class="dep-author">
+                            <div class="dep-avatar">C</div>
+                            <div>
+                                <p style="font-weight:600;color:#4A3A28;margin:0;font-size:.95rem;">Carla S.</p>
+                                <p style="font-size:.82rem;color:#6A5A48;margin:0;">Designer, 28 anos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p style="text-align:center;font-size:.78rem;color:#6A5A48;opacity:.6;margin-top:1.75rem;" data-aos="fade-up">
+                * Depoimentos são ilustrativos. Sigilo profissional preservado conforme Código de Ética do CFP.
+            </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- CONTATO -->
+        <section id="contato" style="padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,58,40,.05),rgba(106,90,72,.05));pointer-events:none;"></div>
+            <div style="max-width:780px;margin:0 auto;position:relative;">
+                <h2 class="gradient-text" style="font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:800;margin:0 0 1.5rem;" data-aos="fade-up">
+                    Agende Sua Sessão Hoje
+                </h2>
+                <p style="font-size:1.05rem;color:#6A5A48;line-height:1.85;margin:0 0 1rem;" data-aos="fade-up" data-aos-delay="100">
+                    Você já deu o primeiro passo apenas por estar aqui. Agora, dê o segundo: comece a transformar sua vida hoje mesmo.
+                </p>
+                <p style="font-size:1.05rem;color:#6A5A48;line-height:1.85;margin:0 0 2.5rem;" data-aos="fade-up" data-aos-delay="200">
+                    Entre em contato e escolha a modalidade de atendimento que melhor se encaixa na sua rotina. Lembre-se: cuidar da sua saúde mental é o maior ato de amor-próprio que você pode praticar.
+                </p>
+                <a href="https://wa.me/5561998712024" target="_blank" class="btn-primary" style="font-size:1.1rem;" data-aos="zoom-in" data-aos-delay="300">
+                    💬 Clique aqui e agende sua consulta
+                </a>
+                <p style="margin-top:1.75rem;font-size:1rem;color:#6A5A48;" data-aos="fade-up" data-aos-delay="400">
+                    Não espere mais para cuidar do que realmente importa: você.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="glass-effect" style="padding:3rem 1.5rem;">
+        <div style="max-width:1100px;margin:0 auto;text-align:center;">
+            <p class="gradient-text" style="font-size:1.5rem;font-weight:700;margin:0 0 .25rem;" data-aos="fade-up">Bianca Oliveira – Psicóloga</p>
+            <p style="font-size:1rem;color:#6A5A48;margin:0 0 1.5rem;" data-aos="fade-up">CRP 01/23012</p>
+            <div style="display:flex;justify-content:center;gap:1.25rem;margin-bottom:1.5rem;" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://wa.me/5561998712024" target="_blank" class="icon-circle" aria-label="WhatsApp">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#4A3A28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="https://instagram.com/psibiancaa" target="_blank" class="icon-circle" aria-label="Instagram">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A3A28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#4A3A28" stroke="none"/>
+                    </svg>
+                </a>
+            </div>
+            <p style="font-size:.82rem;color:#6A5A48;max-width:580px;margin:0 auto 1rem;line-height:1.75;" data-aos="fade-up" data-aos-delay="200">
+                Este site segue as diretrizes do Código de Ética Profissional do Psicólogo. As informações aqui contidas têm caráter informativo e não substituem uma consulta psicológica.
+            </p>
+            <p style="font-size:.82rem;color:#6A5A48;" data-aos="fade-up" data-aos-delay="300">
+                &copy; <span id="year"></span> Bianca Oliveira. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS
+        AOS.init({ once: true, duration: 650, easing: 'ease-out-quad' });
+
+        // Ano
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            document.getElementById('scrollIndicator').style.transform = 'scaleX(' + Math.min(pct, 1) + ')';
+        });
+
+        // Nav responsiva
+        const desktopNav = document.getElementById('desktop-nav');
+        const mobBtn = document.getElementById('mob-btn');
+        const mobMenu = document.getElementById('mob-menu');
+
+        function applyNav() {
+            if (window.innerWidth >= 768) {
+                desktopNav.style.display = 'flex';
+                mobBtn.style.display = 'none';
+                mobMenu.style.display = 'none';
+            } else {
+                desktopNav.style.display = 'none';
+                mobBtn.style.display = 'block';
+            }
+        }
+        applyNav();
+        window.addEventListener('resize', applyNav);
+
+        mobBtn.addEventListener('click', () => {
+            mobMenu.style.display = mobMenu.style.display === 'none' ? 'block' : 'none';
+        });
+        mobMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => { mobMenu.style.display = 'none'; });
+        });
+    </script>
+
+</body>
+</html>
